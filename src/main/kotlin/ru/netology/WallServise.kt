@@ -12,30 +12,13 @@ object WallServise {
     }
 
     fun update(currentPost: Post): Boolean {
-        for (post in posts) {
-            if (post.id == currentPost.id) {
-                post.copy(
-                    fromId = currentPost.fromId,
-                    createdBy = currentPost.createdBy,
-                    text = currentPost.text,
-                    replyOwnerId = currentPost.replyOwnerId,
-                    replyPostId = currentPost.replyPostId,
-                    friendsOnly = currentPost.friendsOnly,
-                    comments = currentPost.comments,
-                    copyright = currentPost.copyright,
-                    likes = currentPost.likes,
-                    reposts = currentPost.reposts,
-                    postType = currentPost.postType,
-                    signerId = currentPost.signerId,
-                    canPin = currentPost.canPin,
-                    canDelete = currentPost.canDelete,
-                    canEdit = currentPost.canEdit,
-                    isPinned = currentPost.isPinned,
-                    markedAsAds = currentPost.markedAsAds,
-                    isFavorite = currentPost.isFavorite,
-                    donut = currentPost.donut,
-                    postponedId = currentPost.postponedId
-                )
+        for (i in 1..posts.size) {
+            if (posts[i].id == currentPost.id) {
+                val id = posts[i].ownerId
+                val date = posts[i].date
+                posts[i] = currentPost.copy()
+                posts[i].ownerId = id
+                posts[i].date = date
                 return true
             }
         }

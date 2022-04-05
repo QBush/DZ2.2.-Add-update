@@ -2,10 +2,10 @@ package ru.netology
 
 data class Post(
     val id: Int = 0,
-    val ownerId: Int,
+    var ownerId: Int,
     val fromId: Int,
     val createdBy: Int,
-    val date: Int,
+    var date: Int,
     val text: String,
     val replyOwnerId: Int,
     val replyPostId: Int,
