@@ -14,11 +14,7 @@ object WallServise {
     fun update(currentPost: Post): Boolean {
         for (i in 1..posts.size) {
             if (posts[i].id == currentPost.id) {
-                val id = posts[i].ownerId
-                val date = posts[i].date
-                posts[i] = currentPost.copy()
-                posts[i].ownerId = id
-                posts[i].date = date
+                posts[i] = currentPost.copy(id = posts[i].ownerId, date = posts[i].date)
                 return true
             }
         }
